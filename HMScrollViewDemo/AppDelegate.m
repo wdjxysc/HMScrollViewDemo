@@ -11,10 +11,15 @@
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize viewController = _viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.viewController = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
+    navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    [navigationController setNavigationBarHidden:YES animated:YES];
+    [_window addSubview:navigationController.view];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
